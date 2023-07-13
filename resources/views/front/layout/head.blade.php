@@ -1,7 +1,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Play | Free Startup and SaaS Landing Page Template by UIdeck</title>
+<title> {{isset($title)? $title .' | '.'Post App': 'Post App' }} </title>
 
 <!-- Primary Meta Tags -->
 <meta name="title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
@@ -29,3 +29,4 @@
 <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }} " />
 <link rel="stylesheet" href="{{ asset('assets/css/lineicons.css') }} " />
 <link rel="stylesheet" href="{{ asset('assets/css/ud-styles.css') }} " />
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css?v=1.0.0') }} " />

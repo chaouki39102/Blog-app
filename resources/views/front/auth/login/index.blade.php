@@ -8,43 +8,32 @@
                 <div class="col-lg-12">
                     <div class="ud-login-wrapper">
                         <div class="ud-login-logo">
-                            <img src="assets/images/logo/logo-2.svg" alt="logo" />
+                            <img src="{{ asset('assets/images/logo/logo-2.svg') }}" alt="logo" />
                         </div>
                         <form class="ud-login-form">
-                            @include('front.components.field',[ 'type'=> 'email', 'name'=>'email', 'placeholder'=>'Email/username'])
-                            @include('front.components.field',[ 'type'=> 'password', 'name'=>'password', 'placeholder'=>'*********'])
+                            @include('front.components.field', [
+                                'class' => 'col-md-12',
+                                'type' => 'email',
+                                'name' => 'email',
+                                'placeholder' => 'Email/username',
+                            ])
+                            @include('front.components.field', [
+                                'class' => 'col-md-12',
+                                'type' => 'password',
+                                'name' => 'password',
+                                'placeholder' => '*********',
+                            ])
                             <div class="ud-form-group">
-                                <button type="submit" class="ud-main-btn w-100">Login</button>
+                                <button type="submit" class="ud-main-btn w-100">{{ __('Login') }}</button>
                             </div>
                         </form>
+                        @include('front.auth.login.social-network-login')
 
-                        <div class="ud-socials-connect">
-                            <p>Connect With</p>
-
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)" class="facebook">
-                                        <i class="lni lni-facebook-filled"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="twitter">
-                                        <i class="lni lni-twitter-filled"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="google">
-                                        <i class="lni lni-google"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a class="forget-pass" href="javascript:void(0)">
-                            Forget Password?
+                        <a class="forget-pass" href="{{ route('auth.forget') }}">
+                            {{ __('Forget Password?') }}
                         </a>
                         <p class="signup-option">
-                            Not a member yet? <a href="javascript:void(0)"> Sign Up </a>
+                            {{ __('Not a member yet?') }} <a href="{{ route('auth.register') }}"> {{ __('Sign Up') }} </a>
                         </p>
                     </div>
                 </div>

@@ -71,7 +71,7 @@
         <a href="{{ route('auth.login') }}" class="ud-main-btn ud-login-btn">
             Sign In
         </a>
-        <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+        <a class="ud-main-btn ud-white-btn" href="{{route('auth.register')}}">
             Sign Up
         </a>
     </div>
