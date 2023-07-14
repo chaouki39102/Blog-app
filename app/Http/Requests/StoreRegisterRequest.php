@@ -27,8 +27,8 @@ class StoreRegisterRequest extends FormRequest
             'email' => 'required|email|unique:users,email',
             'gender' => 'required|in:Male,Female',
             'job_title' => 'nullable|string|min:2|max:100',
-            'password' => 'nullable|string',
-            'bio' => ['required','confirmed', Password::min(8)->mixedCase()->letters()->numbers()->symbols()],
+            'password' => ['required','confirmed', Password::min(8)->mixedCase()->letters()->numbers()->symbols()],
+            'bio' => 'nullable|string',
         ];
     }
 }
