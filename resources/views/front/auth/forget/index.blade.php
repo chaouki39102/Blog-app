@@ -19,11 +19,11 @@
                         </form>
                         @include('front.auth.login.social-network-login')
 
-                        <a class="forget-pass" href="{{route('auth.forget')}}">
+                        <a class="forget-pass" href="{{route('auth.forget.index')}}">
                             {{__('Forget Password?')}}
                         </a>
                         <p class="signup-option">
-                            {{__('Not a member yet?')}} <a href="{{route('auth.register')}}"> {{__('Sign Up')}} </a>
+                            {{__('Not a member yet?')}} <a href="{{route('auth.register.index')}}"> {{__('Sign Up')}} </a>
                         </p>
                     </div>
                 </div>

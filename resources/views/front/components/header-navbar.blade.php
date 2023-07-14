@@ -68,11 +68,11 @@
     </div>
 
     <div class="navbar-btn d-none d-sm-inline-block">
-        <a href="{{ route('auth.login') }}" class="ud-main-btn ud-login-btn">
-            Sign In
+        <a href="{{ route('auth.login.index') }}" class="ud-main-btn ud-login-btn">
+            Login
         </a>
-        <a class="ud-main-btn ud-white-btn" href="{{route('auth.register')}}">
-            Sign Up
+        <a class="ud-main-btn ud-white-btn" href="{{route('auth.register.index')}}">
+            Register
         </a>
     </div>
 </nav>

@@ -1,24 +1,28 @@
-@isset($type)
-    @switch($type)
-        @case('select')
-            <select name="{{ $name ?? '' }}" id="{{ $id ?? '' }}" placeholder="{{ $placeholder ?? '' }}">
-                @foreach ($options ?? [] as $id => $text )
-                <option value="{{ $id }}">{{$text}}</option>
-                    
-                @endforeach
+<div class="text-start ud-form-group {{ $class ?? 'col-md-6' }}">
+    @isset($type)
+        @switch($type)
+            @case('select')
+                <select class="ud-form-select form-select " name="{{ $name ?? '' }}" id="{{ $id ?? ($name ??'') }}"
+                    placeholder="{{ $placeholder ?? '' }}">
+                    @foreach ($options ?? [] as $id => $text)
+                        <option value="{{ $id }}">{{ $text }}</option>
+                    @endforeach
+                </select>
+            @break
 
-            </select>
-        @break
+            @case('textarea')
+                <textarea class="ud-form-textarea {{($errors->first('name') ? " border-danger" : "")}}" name="{{ $name ?? '' }}" id="{{ $id ?? ($name ?? '') }}"
+                    placeholder="{{ $placeholder ?? '' }}" cols="30" rows="5"></textarea>
+            @break
 
-        @case('textarea')
-            <textarea name="{{ $name ?? '' }}" id="{{ $id ?? '' }}" placeholder="{{ $placeholder ?? '' }}" cols="30"
-                rows="10"></textarea>
-        @break
-
-        @default
-            <div class="ud-form-group {{ $class ?? 'col-md-6' }}">
-                <input type="{{ $type ?? '' }}" name="{{ $name ?? '' }}" id="{{ $id ?? '' }}"
+            @default
+                <input class="{{($errors->first('name') ? " border-danger" : "")}}" type="{{ $type ?? '' }}" name="{{ $name ?? '' }}" id="{{ $id ?? ($name ?? '') }}"
                     placeholder="{{ $placeholder ?? '' }}" />
-            </div>
-    @endswitch
-@endisset
+        @endswitch
+    @endisset
+    @isset($name)
+        @error($name)
+            <span class=" text-danger"> {{$message}} </span>
+        @enderror
+    @endisset
+</div>
