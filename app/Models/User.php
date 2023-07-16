@@ -71,6 +71,9 @@ class User extends Authenticatable
     {
         return $this->morphMany(view::class, 'view');
     }
+    public function getNameAttribute($val){
+        return ucfirst($val);
+    }
     
 
 }

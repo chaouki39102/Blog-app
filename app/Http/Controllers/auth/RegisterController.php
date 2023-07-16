@@ -4,7 +4,9 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRegisterRequest;
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -13,9 +15,13 @@ class RegisterController extends Controller
         $title = __('Register');
         return view('front.auth.register.index', compact('title'));
     }
+
     public function store(StoreRegisterRequest $request)
     {
-        $data =$request->validate();
-        return to_route('home');
+        $data = $request->validated();
+        //dd($data);
+        $user = User::create($data);
+        Auth::login($user);
+        return to_route(RouteServiceProvider::HOME);
     }
 }

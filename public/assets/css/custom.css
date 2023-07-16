@@ -10,3 +10,7 @@
     background: #fcfdfe;
     color: var(--body-color);
 }
+.is-invalid input,.is-invalid textarea,
+.is-invalid select{
+    border-color: #dc3545 !important;
+}

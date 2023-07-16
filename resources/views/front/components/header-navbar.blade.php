@@ -66,13 +66,35 @@
             </li>
         </ul>
     </div>
+    @if (auth()->check())
+        <div class="navbar-btn d-none d-sm-inline-block">
+            <ul id="nav" class="navbar-nav mx-auto">
+                <li class="nav-item nav-item-has-children">
+                    <a href="javascript:void(0)"> {{ auth()->user()->name }} </a>
+                    <ul class="ud-submenu">
+                        <li class="ud-submenu-item">
+                            <a href="about.html" class="ud-submenu-link">
+                                {{ __('Profile') }}
+                            </a>
+                        </li>
+                        <li class="ud-submenu-item">
+                            <a href="pricing.html" class="ud-submenu-link">
+                                {{ __('Logout') }}
+                            </a>
+                        </li>
 
-    <div class="navbar-btn d-none d-sm-inline-block">
-        <a href="{{ route('auth.login.index') }}" class="ud-main-btn ud-login-btn">
-            Login
-        </a>
-        <a class="ud-main-btn ud-white-btn" href="{{route('auth.register.index')}}">
-            Register
-        </a>
-    </div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    @else
+        <div class="navbar-btn d-none d-sm-inline-block">
+            <a href="{{ route('auth.login.index') }}" class="ud-main-btn ud-login-btn">
+                {{ __('Login') }}
+            </a>
+            <a class="ud-main-btn ud-white-btn" href="{{ route('auth.register.index') }}">
+                {{ __('Register') }}
+            </a>
+        </div>
+    @endif
 </nav>
