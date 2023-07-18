@@ -6,8 +6,9 @@ use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\auth\ResetPasswordController;
 use Illuminate\Support\Facades\Route;
 
-route::name('auth.')->group(function () {
+route::name('auth.')->middleware('guest')->group(function () {
     Route::get('login', [LoginController::class, 'index'])->name('login.index');
+    Route::post('login', [LoginController::class, 'store'])->name('login.store');
     Route::get('register', [RegisterController::class, 'index'])->name('register.index');
     Route::post('register', [RegisterController::class, 'store'])->name('register.store');
     Route::get('forget', [ForgetController::class, 'index'])->name('forget.index');

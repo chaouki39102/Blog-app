@@ -22,6 +22,6 @@ class RegisterController extends Controller
         //dd($data);
         $user = User::create($data);
         Auth::login($user);
-        return to_route(RouteServiceProvider::HOME);
+        return to_route('home');
     }
 }
