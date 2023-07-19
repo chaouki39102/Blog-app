@@ -17,7 +17,8 @@ class CheckUserType
      */
     public function handle(Request $request, Closure $next, ...$prams): Response
     {
-        if (auth()->user()->user_type === 'admin') {
+        if (in_array(auth()->user()->user_type , $prams)) {
+            // dd($prams);
             return $next($request);
         } else {
             abort(HttpResponse::HTTP_UNAUTHORIZED);
