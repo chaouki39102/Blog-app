@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\IsActiveScope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,6 +20,10 @@ class MenuLink extends Model
         'position',
         'icon',
     ];
+    protected static function booted() :void
+    {
+        static::addGlobalScope(new IsActiveScope);
+    }
     public function sectionLink()
     {
         return $this->belongsTo(sectionLink::class);
@@ -30,4 +36,13 @@ class MenuLink extends Model
     {
         return $this->belongsTo(MenuLink::class);
     }
+    public function scopeActive($query)
+    {
+        $query->where('is_active', true);
+    }
+    public function scopeMenuType(Builder $query, string $type)
+    {
+        $query-> where('menu_type', $type);
+    }
+
 }

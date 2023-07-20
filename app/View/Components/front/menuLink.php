@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components\front;
+namespace App\View\Components\Front;
 
 use App\Models\MenuLink as ModelsMenuLink;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class menuLink extends Component
+class MenuLink extends Component
 {
     public $menuLinks = [];
     /**
@@ -23,11 +23,9 @@ class menuLink extends Component
      */
     public function render(): View|Closure|string
     {
-        $this->menuLinks = ModelsMenuLink::where('menu_type', 'header')
-            ->whereNull('parent_id')
+        $this->menuLinks = ModelsMenuLink::whereNull('parent_id')
+            ->MenuType('header')
             ->with('subMenuLinks')
-            ->where('is_active', true)
-            ->OrderBy('position')
             ->get();
         return view('front.components.menu-link');
     }

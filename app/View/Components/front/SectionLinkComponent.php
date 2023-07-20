@@ -1,13 +1,15 @@
 <?php
 
-namespace App\View\Components\front;
+namespace App\View\Components\Front;
 
+use App\Models\SectionLink;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class sectionLinkCompenent extends Component
+class SectionLinkComponent extends Component
 {
+    public $sectionLinks = [];
     /**
      * Create a new component instance.
      */
@@ -21,6 +23,7 @@ class sectionLinkCompenent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.front.section-link-compenent');
+        $this->sectionLinks = SectionLink::with('menuLinks')->get();
+        return view('front.components.section-link');
     }
 }

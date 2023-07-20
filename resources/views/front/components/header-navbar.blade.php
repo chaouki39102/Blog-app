@@ -9,7 +9,6 @@
     </button>
 
     <div class="navbar-collapse">
-
         <x-front.menu-link />
     </div>
     @if (auth()->check())

@@ -45,109 +45,11 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6">
-                        <div class="ud-widget">
-                            <h5 class="ud-widget-title">About Us</h5>
-                            <ul class="ud-widget-links">
-                                <li>
-                                    <a href="javascript:void(0)">Home</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Features</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">About</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Testimonial</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-                        <div class="ud-widget">
-                            <h5 class="ud-widget-title">Features</h5>
-                            <ul class="ud-widget-links">
-                                <li>
-                                    <a href="javascript:void(0)">How it works</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Privacy policy</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Terms of service</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Refund policy</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
-                        <div class="ud-widget">
-                            <h5 class="ud-widget-title">Our Products</h5>
-                            <ul class="ud-widget-links">
-                                <li>
-                                    <a href="https://lineicons.com/" rel="nofollow noopner" target="_blank">Lineicons
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://ecommercehtml.com/" rel="nofollow noopner"
-                                        target="_blank">Ecommerce HTML</a>
-                                </li>
-                                <li>
-                                    <a href="https://ayroui.com/" rel="nofollow noopner" target="_blank">Ayro UI</a>
-                                </li>
-                                <li>
-                                    <a href="https://graygrids.com/" rel="nofollow noopner" target="_blank">Plain
-                                        Admin</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-8 col-sm-10">
-                        <div class="ud-widget">
-                            <h5 class="ud-widget-title">Partners</h5>
-                            <ul class="ud-widget-brands">
-                                <li>
-                                    <a href="https://ayroui.com/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/ayroui.svg" alt="ayroui" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://ecommercehtml.com/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/ecommerce-html.svg"
-                                            alt="ecommerce-html" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://graygrids.com/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/graygrids.svg" alt="graygrids" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://lineicons.com/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/lineicons.svg" alt="lineicons" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://uideck.com/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/uideck.svg" alt="uideck" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://tailwindtemplates.co/" rel="nofollow noopner" target="_blank">
-                                        <img src="assets/images/footer/brands/tailwindtemplates.svg"
-                                            alt="tailwindtemplates" />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <x-front.section-link-component />
                 </div>
             </div>
         </div>
+
         <div class="ud-footer-bottom">
             <div class="container">
                 <div class="row">

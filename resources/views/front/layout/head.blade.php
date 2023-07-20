@@ -1,7 +1,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title> {{isset($title)? $title .' | '.'Post App': 'Post App' }} </title>
+<title> {{ isset($title) ? $title . ' | ' . setting('site_name') : setting('site_name') }} </title>
 
 <!-- Primary Meta Tags -->
 <meta name="title" content="Play - Free Open Source HTML Bootstrap Template by UIdeck">
