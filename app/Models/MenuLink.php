@@ -20,10 +20,10 @@ class MenuLink extends Model
         'position',
         'icon',
     ];
-    protected static function booted() :void
-    {
-        static::addGlobalScope(new IsActiveScope);
-    }
+    // protected static function booted() :void
+    // {
+    //     static::addGlobalScope(new IsActiveScope);
+    // }
     public function sectionLink()
     {
         return $this->belongsTo(sectionLink::class);

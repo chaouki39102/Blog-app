@@ -2,12 +2,13 @@
 
 // use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\GetFileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes 
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('files', [GetFileController::class])->name('get-file');
 
 require 'auth.php';
 require 'admin.php';

@@ -23,15 +23,12 @@ class ModelServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // dd(app('settings'));
 
+        SectionLink::addGlobalScope(new PositionScope);
+        MenuLink::addGlobalScope(new PositionScope);
         if (request()->segment(1) !== 'admin') {
-            SectionLink::addGlobalScope(new PositionScope);
-            MenuLink::addGlobalScope(new PositionScope);
-            if (request()->segment(1) !== 'admin') {
-                MenuLink::addGlobalScope(new IsActiveScope);
-                SectionLink::addGlobalScope(new IsActiveScope);
-            }
+            MenuLink::addGlobalScope(new IsActiveScope);
+            SectionLink::addGlobalScope(new IsActiveScope);
         }
     }
 }
