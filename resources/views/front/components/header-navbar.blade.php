@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="index.html">
-        <img src="{{getFile(setting('site_logo','assets/images/logo/logo.svg')) }}" alt="Logo" />
+    <a class="navbar-brand" href="{{route('home')}}">
+        <img src="{{getFile(setting('site_logo')) }}" alt="{{setting('site_name')}}" />
     </a>
     <button class="navbar-toggler">
         <span class="toggler-icon"> </span>

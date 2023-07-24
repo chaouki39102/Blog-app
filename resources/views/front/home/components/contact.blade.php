@@ -5,32 +5,36 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="ud-contact-content-wrapper">
                     <div class="ud-contact-title">
-                        <span>CONTACT US</span>
+                        <span>{{ setting('contactus_section_label') }}</span>
                         <h2>
-                            Let’s talk about <br />
-                            Love to hear from you!
+                            {{ setting('contactus_section_title') }}
                         </h2>
                     </div>
                     <div class="ud-contact-info-wrapper">
-                        <div class="ud-single-info">
-                            <div class="ud-info-icon">
-                                <i class="lni lni-map-marker"></i>
+                        @if (setting('contactus_section_location_title'))
+                            <div class="ud-single-info">
+                                <div class="ud-info-icon">
+                                    <i class="{{ setting('contactus_section_location_icon') }}"></i>
+                                </div>
+                                <div class="ud-info-meta">
+                                    <h5>{{ setting('contactus_section_location_title') }}</h5>
+                                    <p>{{ setting('contactus_section_location_text') }}</p>
+                                </div>
                             </div>
-                            <div class="ud-info-meta">
-                                <h5>Our Location</h5>
-                                <p>401 Broadway, 24th Floor, Orchard Cloud View, London</p>
+                        @endif
+
+                        @if (setting('contactus_section_email_title'))
+                            <div class="ud-single-info">
+                                <div class="ud-info-icon">
+                                    <i class="{{ setting('contactus_section_email_icon') }}"></i>
+                                </div>
+                                <div class="ud-info-meta">
+                                    <h5>{{ setting('contactus_section_email_title') }}</h5>
+                                    <p>{{ setting('contactus_section_email_text') }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ud-single-info">
-                            <div class="ud-info-icon">
-                                <i class="lni lni-envelope"></i>
-                            </div>
-                            <div class="ud-info-meta">
-                                <h5>How Can We Help?</h5>
-                                <p>info@yourdomain.com</p>
-                                <p>contact@yourdomain.com</p>
-                            </div>
-                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

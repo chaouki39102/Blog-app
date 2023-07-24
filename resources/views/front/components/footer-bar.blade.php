@@ -14,34 +14,15 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-6">
                         <div class="ud-widget">
-                            <a href="index.html" class="ud-footer-logo">
-                                <img src="assets/images/logo/logo.svg" alt="logo" />
+                            <a href="{{ route('home') }}" class="ud-footer-logo">
+                                <img src="{{ getFile(setting('site_logo', 'assets/images/logo/logo.svg')) }}"
+                                    alt="{{ setting('site_name') }}" />
                             </a>
                             <p class="ud-widget-desc">
-                                We create digital experiences for brands and companies by
-                                using technology.
+                                {{ setting('site_description') }}
                             </p>
                             <ul class="ud-widget-socials">
-                                <li>
-                                    <a href="https://twitter.com/MusharofChy">
-                                        <i class="lni lni-facebook-filled"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/MusharofChy">
-                                        <i class="lni lni-twitter-filled"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/MusharofChy">
-                                        <i class="lni lni-instagram-filled"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/MusharofChy">
-                                        <i class="lni lni-linkedin-original"></i>
-                                    </a>
-                                </li>
+                                <x-front.social-network-icon />
                             </ul>
                         </div>
                     </div>
@@ -55,21 +36,18 @@
                 <div class="row">
                     <div class="col-md-8">
                         <ul class="ud-footer-bottom-left">
-                            <li>
-                                <a href="javascript:void(0)">Privacy policy</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">Support policy</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">Terms of service</a>
-                            </li>
+                            @foreach (setting('footer_pages') as $item)
+                                <li>
+                                    <a href="{{ data_get($item, 'url') }}">{{ data_get($item, 'title') }} </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <p class="ud-footer-bottom-right">
-                            Designed and Developed by
-                            <a href="https://uideck.com" rel="nofollow">UIdeck</a>
+                            {{ setting('footer_copyright_text') }}
+                            <a href="{{ setting('footer_copyright_link_url') }}"
+                                rel="nofollow">{{ setting('footer_copyright_link_text') }}</a>
                         </p>
                     </div>
                 </div>

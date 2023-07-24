@@ -13,7 +13,8 @@ class Setting extends Model
         'value',
     ];
     private $jesonSettings = [
-        'features_section_cards'
+        'features_section_cards',
+        'footer_pages',
     ];
 
     function getValueAttribute($val)

@@ -30,3 +30,5 @@
 <link rel="stylesheet" href="{{ asset('assets/css/lineicons.css') }} " />
 <link rel="stylesheet" href="{{ asset('assets/css/ud-styles.css') }} " />
 <link rel="stylesheet" href="{{ asset('assets/css/custom.css?v=1.0.0') }} " />
+<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
