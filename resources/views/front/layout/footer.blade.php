@@ -7,9 +7,12 @@
 <!-- ====== Back To Top End ====== -->
 
 <!-- ====== All Javascript Files ====== -->
+<script src="{{asset('assets\js\code.jquery.com_jquery-3.7.0.min.js')}}"></script>
+<script src="{{asset('assets\vendor\OwlCarousel\dist\owl.carousel.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+@stack('js-script')
 <script>
     // ==== for menu scroll
     const pageLink = document.querySelectorAll(".ud-menu-scroll");

@@ -13,10 +13,31 @@
         </div>
 
         <div class="row">
-            @foreach ($posts as $post )
-                @include('front.posts.components.post-item')
-            @endforeach
+            <div class="owl-carousel owl-theme owl-loaded owl-drag">
+                @foreach ($posts as $post)
+                    <div class="col-lg- col-md-">
+                        @include('front.posts.components.post-item')
+                    </div>
+                @endforeach
+            </div>
         </div>
-    </div>
 </section>
 <!-- ====== posts End ====== -->
+@push('js-script')
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                margin: 10,
+                loop: true,
+                items: 4,
+                center:true,
+                URLhashListener: true,
+                autoplayHoverPause: true,
+                startPosition: 'URLHash',
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: false,
+            });
+        });
+    </script>
+@endpush
