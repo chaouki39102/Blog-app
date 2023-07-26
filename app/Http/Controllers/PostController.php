@@ -13,7 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $title = __('Posts');
+        $posts = Post::paginate(3);
+        return view('front.posts.index', compact('title', 'posts'));
     }
 
     /**
@@ -37,7 +39,15 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $title = $post->title;
+        $meta = [
+            'title' =>  $title ,
+            'url' => route('posts.show', $post->slug),
+            'description' => $post->seo_description,
+            'image' => getFile($post->image_thumbnail),
+        ];
+        return view('front.posts.show', compact('title', 'meta', 'post'));
+
     }
 
     /**

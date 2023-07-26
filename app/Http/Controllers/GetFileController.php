@@ -7,8 +7,16 @@ use Illuminate\Support\Facades\Storage;
 
 class GetFileController extends Controller
 {
+    // function index(Request $request)
+    // {
+    //     return Storage::url($request->query('path'));
+    // }
     function __invoke(Request $request)
     {
-        // return = Storage::response($request->query());
+        $path =$request->query('path');
+        if (blank($path) || !Storage::exists($path)){
+            abort(404);
+        };
+        return Storage::response($path);
     }
 }

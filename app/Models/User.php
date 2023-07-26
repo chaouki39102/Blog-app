@@ -26,6 +26,7 @@ class User extends Authenticatable
         'bio',
         'status',
         'user_type',
+        'avatar',
     ];
 
 
@@ -48,17 +49,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
+
     public function posts()
     {
-        return $this->hasMany(post::class,'created_by_id');
+        return $this->hasMany(post::class, 'created_by_id');
     }
-    
+
     public function notifications()
     {
-        return $this->hasMany(notification::class,'notifiable_id');
+        return $this->hasMany(notification::class, 'notifiable_id');
     }
-    
+
     public function comments()
     {
         return $this->morphMany(post::class, 'comment');
@@ -71,9 +72,13 @@ class User extends Authenticatable
     {
         return $this->morphMany(view::class, 'view');
     }
-    public function getNameAttribute($val){
+    public function getNameAttribute($val)
+    {
         return ucfirst($val);
     }
-    
 
+    function setAatarAttribute()
+    {
+        //
+    }
 }

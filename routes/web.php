@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('files', [GetFileController::class])->name('get-file');
+Route::get('files', GetFileController::class)->name('get-file');
 Route::resource('posts', PostController::class);
 require 'auth.php';
 require 'admin.php';
