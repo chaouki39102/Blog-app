@@ -40,27 +40,27 @@
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="ud-contact-form-wrapper wow fadeInUp" data-wow-delay=".2s">
-                    <h3 class="ud-contact-form-title">Send us a Message</h3>
+                    <h3 class="ud-contact-form-title">{{__('Send us a Message')}}</h3>
                     <form class="ud-contact-form">
                         <div class="ud-form-group">
-                            <label for="fullName">Full Name*</label>
+                            <label for="fullName">{{__('Full Name*')}}</label>
                             <input type="text" name="fullName" placeholder="Adam Gelius" />
                         </div>
                         <div class="ud-form-group">
-                            <label for="email">Email*</label>
+                            <label for="email">{{__('Email*')}}</label>
                             <input type="email" name="email" placeholder="example@yourmail.com" />
                         </div>
                         <div class="ud-form-group">
-                            <label for="phone">Phone*</label>
+                            <label for="phone">{{__('Phone*')}}</label>
                             <input type="text" name="phone" placeholder="+885 1254 5211 552" />
                         </div>
                         <div class="ud-form-group">
-                            <label for="message">Message*</label>
-                            <textarea name="message" rows="1" placeholder="type your message here"></textarea>
+                            <label for="message">{{__('Message*')}}</label>
+                            <textarea name="message" rows="1" placeholder="{{__('type your message here')}}"></textarea>
                         </div>
                         <div class="ud-form-group mb-0">
                             <button type="submit" class="ud-main-btn">
-                                Send Message
+                                {{__('Send Message')}}
                             </button>
                         </div>
                     </form>

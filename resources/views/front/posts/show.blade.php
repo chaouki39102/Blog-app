@@ -6,25 +6,26 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="ud-blog-details-image">
-                        <img src="{{getFile($post->image_cover)}}" alt="{{$post->title}}" />
+                        <img src="{{ getFile($post->image_cover) }}" alt="{{ $post->title }}" />
                         <div class="ud-blog-overlay">
                             <div class="ud-blog-overlay-content">
                                 <div class="ud-blog-author">
-                                    <img src="{{getFile($post->createdBy->avatar)}}" alt="{{$post->createdBy->name}}" />
+                                    <img src="{{ getFile($post->createdBy->avatar) }}" alt="{{ $post->createdBy->name }}" />
                                     <span>
-                                        By <a href="javascript:void(0)"> {{$post->createdBy->name}} </a>
+                                        By <a href="javascript:void(0)"> {{ $post->createdBy->name }} </a>
                                     </span>
                                 </div>
 
                                 <div class="ud-blog-meta">
                                     <p class="date">
-                                        <i class="lni lni-calendar"></i> <span>{{$post->created_at->format('d M Y')}}</span>
+                                        <i class="lni lni-calendar"></i>
+                                        <span>{{ $post->created_at->format('d M Y') }}</span>
                                     </p>
                                     <p class="comment">
-                                        <i class="lni lni-comments"></i> <span>50</span>
+                                        <i class="lni lni-comments"></i> <span>{{ $post->comments_count }} </span>
                                     </p>
                                     <p class="view">
-                                        <i class="lni lni-eye"></i> <span>35</span>
+                                        <i class="lni lni-eye"></i> <span>{{ $post->views_count }} </span>
                                     </p>
                                 </div>
                             </div>
@@ -34,75 +35,19 @@
 
                 <div class="col-lg-8">
                     <div class="ud-blog-details-content">
-                        <h2 class="ud-blog-details-title">
-                            Facing a challenge is kind of a turn-on for an easy rider
-                        </h2>
-                        <p class="ud-blog-details-para">
-                            There’s a time and place for everything… including asking for
-                            reviews. For instance: you should not asking for a review on
-                            your checkout page. The sole purpose of this page is to guide
-                            your customer to complete their purchase, and this means that
-                            the page should be as minimalist and pared-down possible. You
-                            don’t want to have any unnecessary elements or Call To Actions.
-                        </p>
-                        <p class="ud-blog-details-para">
-                            There’s a time and place for everything… including asking for
-                            reviews. For instance: you should not asking for a review on
-                            your checkout page. The sole purpose of this page is to guide
-                            your customer to complete their purchase, and this means that
-                            the page should be as minimalist and pared-down possible. You
-                            don’t want to have any unnecessary elements or Call To Actions.
-                        </p>
-                        <h3 class="ud-blog-details-subtitle">Sea no quidam vulputate</h3>
-                        <p class="ud-blog-details-para">
-                            At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                            vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                            iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                            ea, dolor this can eloquentiam ei pro. Suas adversarium
-                            interpretaris eu sit, eum viris impedit ne. Erant appareat
-                            corrumpit ei vel.
-                        </p>
-
-                        <div class="ud-blog-quote">
-                            <i class="lni lni-quotation"></i>
-                            <p>
-                                A spring of truth shall flow from it: like a new star it shall
-                                scatter the darkness of ignorance, and cause a light
-                                heretofore unknown to shine amongst men.
-                            </p>
-                            <h6>“Andrio Domeco”</h6>
-                        </div>
-                        <h3 class="ud-blog-details-subtitle">
-                            What is it with your ideas?
-                        </h3>
-                        <p class="ud-blog-details-para">
-                            At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                            vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                            iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                            ea, dolor this can eloquentiam ei pro. Suas adversarium
-                            interpretaris eu sit, eum viris impedit ne. Erant appareat
-                            corrumpit ei vel.
-                        </p>
-                        <p class="ud-blog-details-para">
-                            At quo cetero fastidii. Usu ex ornatus corpora sententiae,
-                            vocibus deleniti ut nec. Ut enim eripuit eligendi est, in
-                            iracundia signiferumque quo. Sed virtute suavitate suscipiantur
-                            ea, dolor this can eloquentiam ei pro. Suas adversarium
-                            interpretaris eu sit, eum viris impedit ne. Erant appareat
-                            corrumpit ei vel.
-                        </p>
+                        <h2 class="ud-blog-details-title"> {{ $post->title }} </h2>
+                        <p class="ud-blog-details-para">{{$post->description}} </p>
+                    
 
                         <div class="ud-blog-details-action">
                             <ul class="ud-blog-tags">
+                                @foreach ( explode('-',$post->seo_keywords) as $keyWord )
+                                    
                                 <li>
-                                    <a href="javascript:void(0)">Design</a>
+                                    <a href="javascript:void(0)">{{$keyWord}} </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0)">Development</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">Info</a>
-                                </li>
+                                @endforeach
+
                             </ul>
                             <div class="ud-blog-share">
                                 <h6>Share This Post</h6>

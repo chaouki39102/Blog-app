@@ -37,17 +37,20 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show($post)
     {
+        $post = Post::whereSlug($post)
+            ->withCount('comments', 'views')
+            ->with('createdBy')
+            ->firstOrFail();
         $title = $post->title;
         $meta = [
-            'title' =>  $title ,
+            'title' =>  $title,
             'url' => route('posts.show', $post->slug),
             'description' => $post->seo_description,
             'image' => getFile($post->image_thumbnail),
         ];
         return view('front.posts.show', compact('title', 'meta', 'post'));
-
     }
 
     /**

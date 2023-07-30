@@ -2,7 +2,7 @@
     @foreach ($menuLinks as $menu)
         @if (!blank($menu->subMenuLinks))
             <li class="nav-item nav-item-has-children">
-                <a href="javascript:void(0)"> {{ $menu->title }} </a>
+                <a href="{{ $menu->url }}"> {{ $menu->title }} </a>
                 <ul class="ud-submenu">
                     @foreach ($menu->subMenuLinks as $subMenu)
                         <li class="ud-submenu-item">
@@ -15,7 +15,7 @@
             </li>
         @else 
             <li class="nav-item">
-                <a class="{{ $menu->url }}" href="#home">{{ $menu->title }}</a>
+                <a class="ud-menu-scroll" href="{{ $menu->url }}">{{ $menu->title }}</a>
             </li>
         @endif
     @endforeach

@@ -42,7 +42,11 @@ class MenuLink extends Model
     }
     public function scopeMenuType(Builder $query, string $type)
     {
-        $query-> where('menu_type', $type);
+        $query->where('menu_type', $type);
     }
 
+    public function getUrlAttribute($val)
+    {
+        return str_replace('{url}', url('/'), $val);
+    }
 }

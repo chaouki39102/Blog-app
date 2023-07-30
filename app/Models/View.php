@@ -18,4 +18,8 @@ class View extends Model
     {
         return $this->belongsTo(user::class);
     }
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }

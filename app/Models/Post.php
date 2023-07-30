@@ -28,10 +28,31 @@ class Post extends Model
     }
     public function createdBy()
     {
-        return $this->belongsTo(user::class);
+        return $this->belongsTo(User::class);
     }
+
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'comment');
+    }
+    public function reviews()
+    {
+        return $this->morphMany(Review::class, 'review');
+    }
+    public function views()
+    {
+        return $this->morphMany(View::class, 'view');
+    }
+
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function scopeSearch($query)
+    {
+        $query-> where('menu_type');
     }
 }

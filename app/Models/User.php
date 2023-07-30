@@ -52,33 +52,37 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany(post::class, 'created_by_id');
+        return $this->hasMany(Post::class, 'created_by_id');
     }
 
     public function notifications()
     {
-        return $this->hasMany(notification::class, 'notifiable_id');
+        return $this->hasMany(Notification::class, 'notifiable_id');
     }
 
     public function comments()
     {
-        return $this->morphMany(post::class, 'comment');
+        return $this->morphMany(Comment::class, 'comment');
     }
     public function reviews()
     {
-        return $this->morphMany(review::class, 'review');
+        return $this->morphMany(Review::class, 'review');
     }
-    public function view()
+    public function views()
     {
-        return $this->morphMany(view::class, 'view');
+        return $this->morphMany(View::class, 'view');
     }
     public function getNameAttribute($val)
     {
         return ucfirst($val);
     }
 
-    function setAatarAttribute()
+    function setAvatarAttribute()
     {
         //
+    }
+    function getAvatarAttribute($val)
+    {
+        return $val ?: url('assets\images\users\user01.png');
     }
 }
