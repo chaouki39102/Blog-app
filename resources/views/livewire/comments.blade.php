@@ -24,12 +24,12 @@
 
                             <p class="ud-comment-time">
                                 {{ $comment->created_at->diffForHumans() }} 
-                            <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1" >
-                                {{__('Replay')}} 
+                            <a wire:click="replyComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1" >
+                                {{__('Reply')}} 
                             </a>
                             
                             @if ( $comment->user->id = userId())
-                            <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1">
+                            <a wire:click="editComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1">
                                 {{__('Edit')}} 
                             </a>
                             <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1">
