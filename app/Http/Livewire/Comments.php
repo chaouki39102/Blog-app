@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
 use Livewire\Component;
 
 class Comments extends Component
@@ -17,12 +18,13 @@ class Comments extends Component
         $this->comments = $post->comments;
         $this->commentCount = $post->comments_count;
     }
+
     public function save()
     {
         $this->validate([
             'comment' => 'required|string|min:3|max:500',
         ]);
-        $this->post->comments()->create(
+        $comment = $this->post->comments()->create(
             [
                 'user_id' => userId(),
                 'comment' => $this->comment,
@@ -31,9 +33,18 @@ class Comments extends Component
         $this->comments->push($comment);
         $this->commentCount++;
         $this->comment = '';
-        session()->flash('message','The comment is succefully created');
+        session()->flash('message', 'The comment is created succefully ');
     }
-
+    
+    public function deleteComment($comment)
+    {
+        $comment = Comment::whereId($comment)->whereUserId(userId())->first();
+        if ($comment) {
+            $this->comments = $this->comments->where('id', '!=', $comment->id);
+            $this->commentCount--;
+            $comment->delete();
+        }
+    }
     public function render()
     {
         return view('livewire.comments');

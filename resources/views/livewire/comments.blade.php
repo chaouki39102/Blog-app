@@ -11,19 +11,36 @@
                 @forelse ($comments as $comment)
                     <li>
                         <div class="ud-comment-image">
-                            <img src="{{ getFile( $comment->user->avatar) }}" alt="author" />
+                            <img src="{{ getFile($comment->user->avatar) }}" alt="author" />
                         </div>
                         <div class="ud-comment-content">
                             <h5 class=" ud-comment-author">
                                 <a href="javascript:void(0)">
-                                    {{ $comment->user->name}}
+                                    {{ $comment->user->name }}
                                 </a>
                             </h5>
-                            <p class="ud-comment-title">{{ $comment->comment}} </p>
-                            <p class="ud-comment-time">{{ $comment->created_at->diffForHumans()}}</p>
+                            <p class="ud-comment-title">{{ $comment->comment }} </p>
+
+
+                            <p class="ud-comment-time">
+                                {{ $comment->created_at->diffForHumans() }} 
+                            <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1" >
+                                {{__('Replay')}} 
+                            </a>
+                            
+                            @if ( $comment->user->id = userId())
+                            <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1">
+                                {{__('Edit')}} 
+                            </a>
+                            <a wire:click="deleteComment({{ $comment }})" href="javascript:void(0)" class="m-sm-1">
+                                {{__('Delete')}}
+                            </a>     
+                            @endif
+                            </p>
                         </div>
                         <div>
                         </div>
+
                     </li>
                 @empty
                     <p>{{ __('There are no comments yet.') }} </p>
