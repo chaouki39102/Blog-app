@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->nullableMorphs('view');
             $table->string('ip_address')->nullable();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->timestamps();
         });
+        
     }
 
     /**

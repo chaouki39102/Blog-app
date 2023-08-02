@@ -18,7 +18,7 @@
             @break
 
             @case('textarea')
-                <textarea class="ud-form-textarea " name="{{ $name ?? '' }}" id="{{ $id ?? ($name ?? '') }}"
+                <textarea class="ud-form-textarea " name="{{ $name ?? '' }}" wire:model="{{ $name ?? '' }}" id="{{ $id ?? ($name ?? '') }}"
                     placeholder="{{ $placeholder ?? '' }}" cols="30" rows="5"> {{ old($name) }} </textarea>
             @break
 

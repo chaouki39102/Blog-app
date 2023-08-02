@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
+use App\Models\View;
 
 class PostController extends Controller
 {
@@ -14,7 +16,12 @@ class PostController extends Controller
     public function index()
     {
         $title = __('Posts');
-        $posts = Post::paginate(3);
+        if ($categoryId = request('category_id')) {
+            if ($category = Category::find($categoryId)) {
+                $title .= ': ' . $category->name;
+            }
+        }
+        $posts = Post::search()->paginate(6);
         return view('front.posts.index', compact('title', 'posts'));
     }
 
@@ -40,17 +47,19 @@ class PostController extends Controller
     public function show($post)
     {
         $post = Post::whereSlug($post)
-            ->withCount('comments', 'views')
-            ->with('createdBy')
-            ->firstOrFail();
+            ->withCount('comments')
+            ->with('createdBy', 'category', 'comments.user')
+            ->firstOrFail()->view();
+        $reletedPosts = Post::Releted($post)->get();
         $title = $post->title;
         $meta = [
             'title' =>  $title,
             'url' => route('posts.show', $post->slug),
             'description' => $post->seo_description,
             'image' => getFile($post->image_thumbnail),
+            'image_cover' => getFile($post->image_cover),
         ];
-        return view('front.posts.show', compact('title', 'meta', 'post'));
+        return view('front.posts.show', compact('title', 'meta', 'post', 'reletedPosts'));
     }
 
     /**

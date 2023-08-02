@@ -9,13 +9,20 @@
                         <img src="{{ getFile($post->image_cover) }}" alt="{{ $post->title }}" />
                         <div class="ud-blog-overlay">
                             <div class="ud-blog-overlay-content">
+
                                 <div class="ud-blog-author">
                                     <img src="{{ getFile($post->createdBy->avatar) }}" alt="{{ $post->createdBy->name }}" />
                                     <span>
-                                        By <a href="javascript:void(0)"> {{ $post->createdBy->name }} </a>
+                                        {{ __('By') }} <a href="javascript:void(0)"> {{ $post->createdBy->name }} </a>
                                     </span>
                                 </div>
-
+                                <div class="ud-blog-author">
+                                    <span>
+                                        <i class="lni lni-tag"></i>
+                                        <a href="{{ route('posts.index', ['category_id' => $post->category_id]) }}">
+                                            {{ $post->category->name }} </a>
+                                    </span>
+                                </div>
                                 <div class="ud-blog-meta">
                                     <p class="date">
                                         <i class="lni lni-calendar"></i>
@@ -36,47 +43,36 @@
                 <div class="col-lg-8">
                     <div class="ud-blog-details-content">
                         <h2 class="ud-blog-details-title"> {{ $post->title }} </h2>
-                        <p class="ud-blog-details-para">{{$post->description}} </p>
-                    
+                        <p class="ud-blog-details-para">{{ $post->description }} </p>
+
 
                         <div class="ud-blog-details-action">
                             <ul class="ud-blog-tags">
-                                @foreach ( explode('-',$post->seo_keywords) as $keyWord )
-                                    
-                                <li>
-                                    <a href="javascript:void(0)">{{$keyWord}} </a>
-                                </li>
+                                @foreach (explode('-', $post->seo_keywords) as $keyWord)
+                                    <li>
+                                        <a href="{{ route('posts.index', ['q' => $keyWord]) }}">{{ $keyWord }} </a>
+                                    </li>
                                 @endforeach
 
                             </ul>
                             <div class="ud-blog-share">
-                                <h6>Share This Post</h6>
-                                <ul class="ud-blog-share-links">
-                                    <li>
-                                        <a href="javascript:void(0)" class="facebook">
-                                            <i class="lni lni-facebook-filled"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="twitter">
-                                            <i class="lni lni-twitter-filled"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)" class="linkedin">
-                                            <i class="lni lni-linkedin-original"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <h6>{{ __('Share this post') }} </h6>
+                                @include('front.posts.components.share-social-network', [
+                                    'url' => request()->fullUrl(),
+                                    'text' => $post->title,
+                                ])
                             </div>
                         </div>
                     </div>
+                    @livewire('comments', ['post' => $post])
                 </div>
                 <div class="col-lg-4">
                     <div class="ud-blog-sidebar">
                         <div class="ud-newsletter-box">
-                            <img src="assets/images/blog/dotted-shape.svg" alt="shape" class="shape shape-1" />
-                            <img src="assets/images/blog/dotted-shape.svg" alt="shape" class="shape shape-2" />
+                            <img src="{{ getFile('assets/images/blog/dotted-shape.svg') }}" alt="shape"
+                                class="shape shape-1" />
+                            <img src="{{ getFile('assets/images/blog/dotted-shape.svg') }}" alt="shape"
+                                class="shape shape-2" />
                             <h3 class="ud-newsletter-title">Join our newsletter!</h3>
                             <p>Enter your email to receive our latest newsletter.</p>
                             <form class="ud-newsletter-form">
@@ -88,10 +84,12 @@
 
                         <div class="ud-articles-box">
                             <h3 class="ud-articles-box-title">Popular Articles</h3>
+
                             <ul class="ud-articles-list">
                                 <li>
                                     <div class="ud-article-image">
-                                        <img src="assets/images/blog/article-author-01.png" alt="author" />
+                                        <img src="{{ getFile('assets/images/blog/article-author-01.png') }}"
+                                            alt="author" />
                                     </div>
                                     <div class="ud-article-content">
                                         <h5 class="ud-article-title">
@@ -104,7 +102,8 @@
                                 </li>
                                 <li>
                                     <div class="ud-article-image">
-                                        <img src="assets/images/blog/article-author-02.png" alt="author" />
+                                        <img src="{{ getFile('assets/images/blog/article-author-02.png') }}"
+                                            alt="author" />
                                     </div>
                                     <div class="ud-article-content">
                                         <h5 class="ud-article-title">
@@ -117,7 +116,8 @@
                                 </li>
                                 <li>
                                     <div class="ud-article-image">
-                                        <img src="assets/images/blog/article-author-03.png" alt="author" />
+                                        <img src="{{ getFile('assets/images/blog/article-author-03.png') }}"
+                                            alt="author" />
                                     </div>
                                     <div class="ud-article-content">
                                         <h5 class="ud-article-title">
@@ -130,7 +130,8 @@
                                 </li>
                                 <li>
                                     <div class="ud-article-image">
-                                        <img src="assets/images/blog/article-author-04.png" alt="author" />
+                                        <img src="{{ getFile('assets/images/blog/article-author-04.png') }}"
+                                            alt="author" />
                                     </div>
                                     <div class="ud-article-content">
                                         <h5 class="ud-article-title">
@@ -144,11 +145,6 @@
                             </ul>
                         </div>
 
-                        <div class="ud-banner-ad">
-                            <a href="javascript:void(0)">
-                                <img src="assets/images/blog/bannder-ad.png" alt="ad banner" />
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -163,69 +159,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="ud-single-blog">
-                        <div class="ud-blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog/blog-01.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="ud-blog-content">
-                            <span class="ud-blog-date">Dec 22, 2023</span>
-                            <h3 class="ud-blog-title">
-                                <a href="blog-details.html">
-                                    Meet AutoManage, the best AI management tools
-                                </a>
-                            </h3>
-                            <p class="ud-blog-desc">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry.
-                            </p>
-                        </div>
+                @forelse ($reletedPosts as $reletedpost)
+                    <div class="col-lg-4 col-md-6">
+                        @include('front.posts.components.post-item', ['post' => $reletedpost])
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="ud-single-blog">
-                        <div class="ud-blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog/blog-02.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="ud-blog-content">
-                            <span class="ud-blog-date">Dec 22, 2023</span>
-                            <h3 class="ud-blog-title">
-                                <a href="blog-details.html">
-                                    How to earn more money as a wellness coach
-                                </a>
-                            </h3>
-                            <p class="ud-blog-desc">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="ud-single-blog">
-                        <div class="ud-blog-image">
-                            <a href="blog-details.html">
-                                <img src="assets/images/blog/blog-03.jpg" alt="blog">
-                            </a>
-                        </div>
-                        <div class="ud-blog-content">
-                            <span class="ud-blog-date">Dec 22, 2023</span>
-                            <h3 class="ud-blog-title">
-                                <a href="blog-details.html">
-                                    The no-fuss guide to upselling and cross selling
-                                </a>
-                            </h3>
-                            <p class="ud-blog-desc">
-                                Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p>{{ __('There are no posts yet.') }} </p>
+                @endforelse
             </div>
         </div>
     </section>

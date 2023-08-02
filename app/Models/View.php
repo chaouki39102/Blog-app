@@ -22,4 +22,8 @@ class View extends Model
     {
         return $this->belongsTo(Post::class);
     }
+    public function viewable()
+    {
+        return $this->morphTo('view');
+    }
 }

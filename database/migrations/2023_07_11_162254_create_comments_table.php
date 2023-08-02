@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->nullableMorphs('comment');
-            $table->boolean('is_published');
+            $table->boolean('is_published')->default(true);
             $table->text('comment');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();

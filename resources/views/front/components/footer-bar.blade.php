@@ -1,13 +1,13 @@
     <!-- ====== Footer Start ====== -->
     <footer class="ud-footer wow fadeInUp" data-wow-delay=".15s">
         <div class="shape shape-1">
-            <img src="assets/images/footer/shape-1.svg" alt="shape" />
+            <img src="{{getFile('assets/images/footer/shape-1.svg') }}" alt="shape" />
         </div>
         <div class="shape shape-2">
-            <img src="assets/images/footer/shape-2.svg" alt="shape" />
+            <img src="{{getFile('assets/images/footer/shape-2.svg') }}" alt="shape" />
         </div>
         <div class="shape shape-3">
-            <img src="assets/images/footer/shape-3.svg" alt="shape" />
+            <img src="{{getFile('assets/images/footer/shape-3.svg') }}" alt="shape" />
         </div>
         <div class="ud-footer-widgets">
             <div class="container">
@@ -55,3 +55,5 @@
         </div>
     </footer>
     <!-- ====== Footer End ====== -->
+    @livewireScripts
+    </body>

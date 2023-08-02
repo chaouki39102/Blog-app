@@ -31,4 +31,4 @@
 <link rel="stylesheet" href="{{ asset('assets/css/ud-styles.css') }} " />
 <link rel="stylesheet" href="{{ asset('assets/vendor/OwlCarousel/dist/assets/owl.carousel.min.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/OwlCarousel/dist/assets/owl.theme.default.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/css/custom.css?v=1.0.0') }} " />
+<link rel="stylesheet" href="{{ asset('assets/css/custom.css?v=1.0.4') }} " />

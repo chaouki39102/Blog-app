@@ -1,8 +1,9 @@
-.register .ud-login-wrapper  {
+.register .ud-login-wrapper {
     max-width: 750px;
 }
 
-.ud-form-select, .ud-form-textarea {
+.ud-form-select,
+.ud-form-textarea {
     width: 100%;
     border: 2px solid #dddddd;
     border-radius: 4px;
@@ -10,7 +11,133 @@
     background: #fcfdfe;
     color: var(--body-color);
 }
-.is-invalid input,.is-invalid textarea,
-.is-invalid select{
+.is-invalid input,
+.is-invalid textarea,
+.is-invalid select {
     border-color: #dc3545 !important;
+}
+.ud-main-btn-sm {
+    padding: 8px 25px;
+}
+
+.ud-comments-box {
+    margin-bottom: 20px;
+}
+
+.ud-comments-box .ud-comments-box-title {
+    font-weight: 600;
+    font-size: 28px;
+    padding-bottom: 25px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.ud-comments-box .ud-comments-box-title::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: 0;
+}
+
+.ud-comments-box .ud-comments-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid #f2f3f8;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ud-comments-box .ud-comments-list li:last-child {
+    padding-bottom: 0px;
+    border-bottom: 0px;
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-image {
+    max-width: 70px;
+    width: 100%;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px),
+    (max-width: 767px) {
+    .ud-comments-box .ud-comments-list .ud-comment-image {
+        max-width: 65px;
+        height: 65px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .ud-comments-box .ud-comments-list .ud-comment-image {
+        max-width: 80px;
+        height: 80px;
+    }
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-image img {
+    width: 100%;
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-title {
+    font-weight: 500;
+    font-size:16px;
+    line-height: 22px;
+    margin-bottom: 0px;
+}
+.ud-comments-box .ud-comments-list .ud-comment-content p {
+    font-weight: 500;
+    font-size:14px;
+
+}
+.ud-comments-box .ud-comments-list .ud-comment-content .ud-comment-time {
+    font-weight: 500;
+    font-size:12px;
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .ud-comments-box .ud-comments-list .ud-comment-title {
+        font-size: 14px;
+    }
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-title a {
+    color: inherit;
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-title a:hover {
+    color: var(--primary-color);
+}
+
+.ud-comments-box .ud-comments-list .ud-comment-author {
+    font-size: 16px;
+}
+
+.ud-related-comments-title {
+    font-weight: 800;
+    font-size: 28px;
+    padding-bottom: 15px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.ud-related-comments-title::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: 0;
+}
+.ud-blog-sidebar{
+    padding-top: 20;
 }

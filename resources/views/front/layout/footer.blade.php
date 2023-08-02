@@ -1,5 +1,4 @@
 @include('front.components.footer-bar')
-
 <!-- ====== Back To Top Start ====== -->
 <a href="javascript:void(0)" class="back-to-top">
     <i class="lni lni-chevron-up"> </i>
@@ -27,7 +26,7 @@
     //     });
     // });
 
-    // section menu active
+    section menu active
     function onScroll(event) {
         const sections = document.querySelectorAll(".ud-menu-scroll");
         const scrollPos =
